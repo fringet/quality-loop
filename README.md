@@ -44,6 +44,14 @@ Spec → Build → Review → Deploy → Quality Loop → (back to) Spec
 - Systemic issues surface in **Organizational Insights**
 - Culture constraints become machine-checkable
 
+## Features
+
+- **Interactive Walkthrough** - Auto-opens on first visit to guide users through the concept
+- **Live Demo** - Explore sample specs with full scorecards and culture violations
+- **Pattern Library** - Reusable Gold Standards extracted from high-scoring specs
+- **Insights Dashboard** - Organizational patterns and systemic issues
+- **Responsive Design** - Mobile-friendly with smooth animations
+
 ## Project Structure
 
 ```
@@ -65,7 +73,8 @@ quality-loop-2/
 │           └── page.tsx            # Culture rules reference
 ├── components/
 │   ├── ui/                         # Reusable UI components
-│   └── nav.tsx                     # Navigation
+│   ├── nav.tsx                     # Navigation
+│   └── walkthrough.tsx             # Interactive tour component
 ├── data/                           # Mock data (JSON)
 │   ├── specs.json
 │   ├── gold-standards.json
