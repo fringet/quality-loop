@@ -117,15 +117,15 @@ export function Walkthrough({ onComplete }: WalkthroughProps) {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 1 }}
         onClick={handleStart}
-        className="fixed bottom-6 right-6 z-40 flex items-center gap-2 px-4 py-3 bg-gradient-to-r from-accent-primary to-accent-secondary text-white font-medium rounded-full shadow-lg shadow-accent-primary/30 hover:shadow-xl hover:shadow-accent-primary/40 transition-shadow"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-3 bg-gradient-to-r from-accent-primary to-accent-secondary text-white font-medium rounded-full shadow-lg shadow-accent-primary/30 hover:shadow-xl hover:shadow-accent-primary/40 transition-shadow"
       >
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
-        <span className="hidden sm:inline">Take a Tour</span>
+        <span className="text-sm sm:text-base">Tour</span>
         {!hasSeenTour && (
-          <span className="absolute -top-1 -right-1 w-3 h-3 bg-accent-gold rounded-full animate-pulse" />
+          <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-accent-gold rounded-full animate-pulse" />
         )}
       </motion.button>
 
@@ -144,14 +144,14 @@ export function Walkthrough({ onComplete }: WalkthroughProps) {
 
             {/* Modal */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="fixed z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg mx-4"
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="fixed z-50 inset-4 sm:top-1/2 sm:left-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 sm:w-full sm:max-w-2xl sm:mx-auto sm:inset-auto flex items-center justify-center"
             >
-              <div className="bg-surface-1 border border-surface-3 rounded-2xl shadow-2xl overflow-hidden">
+              <div className="bg-surface-1 border border-surface-3 rounded-xl sm:rounded-2xl shadow-2xl overflow-hidden w-full max-h-[90vh] flex flex-col">
                 {/* Progress Bar */}
-                <div className="h-1 bg-surface-3">
+                <div className="h-1 bg-surface-3 flex-shrink-0">
                   <motion.div
                     className="h-full bg-gradient-to-r from-accent-primary to-accent-secondary"
                     initial={{ width: 0 }}
@@ -160,19 +160,19 @@ export function Walkthrough({ onComplete }: WalkthroughProps) {
                   />
                 </div>
 
-                {/* Content */}
-                <div className="p-6 sm:p-8">
+                {/* Content - Scrollable */}
+                <div className="p-4 sm:p-6 overflow-y-auto flex-1">
                   {/* Step Indicator */}
-                  <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center justify-between mb-4 sm:mb-6">
                     <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-primary to-accent-secondary flex items-center justify-center">
+                      <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-accent-primary to-accent-secondary flex items-center justify-center">
                         <span className="text-sm font-bold text-white">{currentStep + 1}</span>
                       </div>
-                      <span className="text-sm text-text-muted">of {walkthroughSteps.length}</span>
+                      <span className="text-xs sm:text-sm text-text-muted">of {walkthroughSteps.length}</span>
                     </div>
                     <button
                       onClick={handleSkip}
-                      className="p-1 text-text-muted hover:text-text-primary hover:bg-surface-2 rounded-lg transition-colors"
+                      className="p-1.5 text-text-muted hover:text-text-primary hover:bg-surface-2 rounded-lg transition-colors"
                       aria-label="Close tour"
                     >
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -190,77 +190,55 @@ export function Walkthrough({ onComplete }: WalkthroughProps) {
                       exit={{ opacity: 0, x: -20 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <h2 className="text-xl sm:text-2xl font-bold text-text-primary mb-3">
+                      <h2 className="text-lg sm:text-xl font-bold text-text-primary mb-2 sm:mb-3">
                         {step.title}
                       </h2>
-                      <p className="text-text-secondary leading-relaxed">
+                      <p className="text-sm sm:text-base text-text-secondary leading-relaxed">
                         {step.content}
                       </p>
                     </motion.div>
                   </AnimatePresence>
 
                   {/* Step Visualization */}
-                  <div className="mt-6 p-4 bg-surface-2 rounded-xl">
+                  <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-surface-2 rounded-lg sm:rounded-xl">
                     <StepVisualization stepId={step.id} />
                   </div>
                 </div>
 
-                {/* Footer */}
-                <div className="px-6 sm:px-8 py-4 bg-surface-2 border-t border-surface-3 flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={handlePrev}
-                      disabled={currentStep === 0}
-                      className={`flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                        currentStep === 0
-                          ? 'text-text-muted cursor-not-allowed'
-                          : 'text-text-secondary hover:text-text-primary hover:bg-surface-3'
-                      }`}
-                    >
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                      </svg>
-                      Back
-                    </button>
-                    <button
-                      onClick={handleSkip}
-                      className="px-3 py-2 text-sm text-text-muted hover:text-text-secondary hover:bg-surface-3 rounded-lg font-medium transition-colors"
-                    >
-                      Skip tour
-                    </button>
-                  </div>
+                {/* Footer - Fixed at bottom */}
+                <div className="px-4 sm:px-6 py-3 sm:py-4 bg-surface-2 border-t border-surface-3 flex items-center justify-between gap-2 flex-shrink-0">
+                  {/* Left: Back button */}
+                  <button
+                    onClick={handlePrev}
+                    disabled={currentStep === 0}
+                    className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm transition-colors ${
+                      currentStep === 0
+                        ? 'text-text-muted cursor-not-allowed'
+                        : 'text-text-secondary hover:text-text-primary hover:bg-surface-3'
+                    }`}
+                    aria-label="Previous"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                    <span>Back</span>
+                  </button>
 
-                  {/* Step Dots */}
-                  <div className="hidden sm:flex items-center gap-1.5">
-                    {walkthroughSteps.map((_, i) => (
-                      <button
-                        key={i}
-                        onClick={() => setCurrentStep(i)}
-                        className={`w-2 h-2 rounded-full transition-all ${
-                          i === currentStep
-                            ? 'bg-accent-primary w-4'
-                            : i < currentStep
-                            ? 'bg-accent-primary/50'
-                            : 'bg-surface-3'
-                        }`}
-                      />
-                    ))}
-                  </div>
-
+                  {/* Right: Next/Complete button */}
                   <button
                     onClick={handleNext}
-                    className="flex items-center gap-1 px-4 py-2 bg-accent-primary hover:bg-accent-primary/90 text-white rounded-lg text-sm font-medium transition-colors"
+                    className="flex items-center gap-1.5 px-4 py-2 bg-accent-primary hover:bg-accent-primary/90 text-white rounded-lg text-sm font-medium transition-colors"
                   >
                     {currentStep === walkthroughSteps.length - 1 ? (
                       <>
-                        Explore Demo
+                        <span>Explore</span>
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M12 5l7 7-7 7" />
                         </svg>
                       </>
                     ) : (
                       <>
-                        Next
+                        <span>Next</span>
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
@@ -304,86 +282,112 @@ function StepVisualization({ stepId }: { stepId: string }) {
 
     case 'problem':
       return (
-        <div className="flex items-center justify-center gap-2 text-sm">
-          {['Spec', 'Build', 'Deploy'].map((item, i) => (
+        <div className="space-y-3">
+          <div className="flex flex-wrap items-center justify-center gap-2 text-xs sm:text-sm">
+            {[
+              { label: 'Spec' },
+              { label: 'Build' },
+              { label: 'Deploy' }
+            ].map((item, i) => (
+              <motion.div
+                key={item.label}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                className="flex items-center"
+              >
+                <div className="px-2 sm:px-3 py-1 sm:py-1.5 bg-surface-3 rounded-lg text-text-primary font-medium">
+                  {item.label}
+                </div>
+                {i < 2 && <span className="mx-1 sm:mx-2 text-text-muted">→</span>}
+              </motion.div>
+            ))}
+            <span className="mx-1 sm:mx-2 text-text-muted">→</span>
             <motion.div
-              key={item}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-              className="flex items-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
             >
-              <span className="px-3 py-1.5 bg-surface-3 rounded-lg text-text-secondary">{item}</span>
-              {i < 2 && <span className="mx-1 text-text-muted">→</span>}
+              <div className="px-2 sm:px-3 py-1 sm:py-1.5 bg-accent-danger/20 text-accent-danger rounded-lg font-medium">
+                Learning Lost
+              </div>
             </motion.div>
-          ))}
-          <span className="mx-1 text-text-muted">→</span>
-          <motion.span
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-            className="px-3 py-1.5 bg-accent-danger/20 text-accent-danger rounded-lg"
-          >
-            Lost
-          </motion.span>
+          </div>
         </div>
       );
 
     case 'pipeline':
       return (
-        <div className="flex items-center justify-center gap-1 text-xs">
-          {['CU', 'SP', 'BU', 'RE', 'DE'].map((abbr, i) => (
-            <motion.div
-              key={abbr}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: i * 0.1 }}
-              className="flex items-center"
-            >
-              <span className="w-8 h-8 bg-surface-3 rounded-lg flex items-center justify-center text-text-muted font-medium">
-                {abbr}
-              </span>
-              {i < 4 && <span className="mx-0.5 text-text-muted">→</span>}
-            </motion.div>
-          ))}
+        <div className="space-y-2">
+          <div className="flex flex-wrap items-center justify-center gap-1 sm:gap-1.5 text-xs">
+            {[
+              { abbr: 'Culture' },
+              { abbr: 'Spec' },
+              { abbr: 'Build' },
+              { abbr: 'Review' },
+              { abbr: 'Deploy' }
+            ].map((item, i) => (
+              <motion.div
+                key={item.abbr}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: i * 0.1 }}
+                className="flex items-center"
+              >
+                <div className="px-2 py-1 bg-surface-3 rounded text-text-primary font-medium text-xs sm:text-sm">
+                  {item.abbr}
+                </div>
+                {i < 4 && <span className="mx-0.5 sm:mx-1 text-text-muted text-sm">→</span>}
+              </motion.div>
+            ))}
+          </div>
+          <div className="text-center text-[10px] text-accent-danger mt-2">
+            ⚠️ Linear flow - no feedback
+          </div>
         </div>
       );
 
     case 'quality-loop':
       return (
-        <div className="flex flex-col items-center gap-2">
-          <div className="flex items-center gap-1 text-xs">
-            {['SP', 'BU', 'DE'].map((abbr, i) => (
+        <div className="space-y-2">
+          <div className="flex flex-wrap items-center justify-center gap-1 text-xs">
+            {[
+              { abbr: 'Spec' },
+              { abbr: 'Build' },
+              { abbr: 'Deploy' }
+            ].map((item, i) => (
               <motion.div
-                key={abbr}
+                key={item.abbr}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: i * 0.1 }}
                 className="flex items-center"
               >
-                <span className="w-7 h-7 bg-surface-3 rounded flex items-center justify-center text-text-muted font-medium text-xs">
-                  {abbr}
-                </span>
-                {i < 2 && <span className="mx-0.5 text-text-muted">→</span>}
+                <div className="px-2 py-1 bg-surface-3 rounded text-text-muted font-medium text-xs sm:text-sm">
+                  {item.abbr}
+                </div>
+                {i < 2 && <span className="mx-0.5 sm:mx-1 text-text-muted">→</span>}
               </motion.div>
             ))}
-            <span className="mx-1 text-text-muted">→</span>
-            <motion.span
+            <span className="mx-0.5 sm:mx-1 text-text-muted">→</span>
+            <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.4 }}
-              className="px-2 py-1 bg-gradient-to-r from-accent-primary to-accent-secondary rounded text-white font-medium text-xs"
             >
-              QL
-            </motion.span>
+              <div className="px-2 py-1 bg-gradient-to-r from-accent-primary to-accent-secondary rounded text-white font-medium text-xs sm:text-sm">
+                Quality Loop
+              </div>
+            </motion.div>
           </div>
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
-            className="text-accent-primary text-lg"
+            className="text-center"
           >
-            ↩
+            <div className="text-accent-primary text-xl sm:text-2xl">↩</div>
+            <div className="text-[10px] text-accent-success mt-0.5">✓ Learning flows back</div>
           </motion.div>
         </div>
       );

@@ -391,7 +391,7 @@ export default function SystemFlowPage() {
       </div>
       
       {/* Footer */}
-      <footer className="py-8 px-4 sm:px-6 lg:px-8 border-t border-surface-3">
+      <footer className="mt-20 py-8 px-4 sm:px-6 lg:px-8 border-t border-surface-3">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center space-x-2">
             <div className="w-6 h-6 bg-gradient-to-br from-accent-primary to-accent-secondary rounded flex items-center justify-center">
