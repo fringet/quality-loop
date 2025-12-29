@@ -93,7 +93,7 @@ const qualityLoopComponents = [
 
 export default function SystemFlowPage() {
   const [selectedStage, setSelectedStage] = useState<Stage | null>(null);
-  const [showQualityLoopDetail, setShowQualityLoopDetail] = useState(false);
+  const [showQualityLoopDetail, setShowQualityLoopDetail] = useState(true);
   
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
@@ -231,18 +231,8 @@ export default function SystemFlowPage() {
             </svg>
             
             {/* Quality Loop Card */}
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => {
-                setSelectedStage(null);
-                setShowQualityLoopDetail(true);
-              }}
-              className={`relative w-full bg-gradient-to-r from-accent-primary/10 via-accent-secondary/10 to-accent-primary/10 border-2 rounded-2xl p-6 transition-all ${
-                showQualityLoopDetail
-                  ? 'border-accent-primary shadow-xl shadow-accent-primary/20'
-                  : 'border-accent-primary/30 hover:border-accent-primary/60'
-              }`}
+            <motion.div
+              className="relative w-full bg-gradient-to-r from-accent-primary/10 via-accent-secondary/10 to-accent-primary/10 border-2 border-accent-primary shadow-xl shadow-accent-primary/20 rounded-2xl p-6"
             >
               {/* Animated glow */}
               <motion.div
@@ -280,9 +270,6 @@ export default function SystemFlowPage() {
                       {label}
                     </span>
                   ))}
-                  <svg className="w-5 h-5 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
                 </div>
               </div>
               
@@ -290,7 +277,7 @@ export default function SystemFlowPage() {
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 px-3 py-1 bg-surface-1 border border-accent-primary/30 rounded-full">
                 <span className="text-xs font-medium text-accent-primary">Loops back to Culture & Spec</span>
               </div>
-            </motion.button>
+            </motion.div>
           </div>
         </motion.div>
         
@@ -373,13 +360,6 @@ export default function SystemFlowPage() {
                   ))}
                 </div>
               </div>
-              
-              <button
-                onClick={() => setShowQualityLoopDetail(false)}
-                className="text-sm text-text-muted hover:text-text-secondary transition-colors"
-              >
-                ← Back to overview
-              </button>
             </motion.div>
           )}
         </AnimatePresence>
