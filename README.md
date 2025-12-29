@@ -55,7 +55,7 @@ Spec → Build → Review → Deploy → Quality Loop → (back to) Spec
 ## Project Structure
 
 ```
-quality-loop-2/
+quality-loop/
 ├── app/
 │   ├── page.tsx                    # Landing page
 │   ├── system-flow/

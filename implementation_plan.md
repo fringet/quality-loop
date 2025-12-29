@@ -286,7 +286,7 @@ Currently, when a spec fails or succeeds, the learning stays with that individua
 
 ### File Structure
 ```
-quality-loop-2/
+quality-loop/
 ├── app/
 │   ├── layout.tsx                 # Root layout with nav
 │   ├── page.tsx                   # Landing page
