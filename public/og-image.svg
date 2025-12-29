@@ -1,0 +1,45 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0a"/>
+      <stop offset="100%" stop-color="#1a1a1a"/>
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="glowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Background glow -->
+  <ellipse cx="600" cy="315" rx="600" ry="400" fill="url(#glowGradient)"/>
+  
+  <!-- Grid pattern -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <circle cx="1" cy="1" r="1" fill="#333"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.5"/>
+  
+  <!-- Logo -->
+  <rect x="535" y="150" width="130" height="130" rx="24" fill="url(#accentGradient)"/>
+  <text x="600" y="235" font-family="system-ui, -apple-system, sans-serif" font-size="56" font-weight="bold" fill="white" text-anchor="middle">QL</text>
+  
+  <!-- Title -->
+  <text x="600" y="345" font-family="system-ui, -apple-system, sans-serif" font-size="48" font-weight="bold" fill="#ededed" text-anchor="middle">THE QUALITY LOOP</text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="400" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#a1a1aa" text-anchor="middle">Making Spec Quality Compound</text>
+  
+  <!-- Tagline -->
+  <text x="600" y="480" font-family="system-ui, -apple-system, sans-serif" font-size="18" fill="#71717a" text-anchor="middle">A self-improving QA system for AI-first building</text>
+  
+  <!-- Footer -->
+  <line x1="100" y1="550" x2="1100" y2="550" stroke="#262626" stroke-width="1"/>
+  <text x="600" y="590" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#71717a" text-anchor="middle">Built for Lovie by Ozan Özgöçer</text>
+</svg>

@@ -1,36 +1,136 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The Quality Loop
 
-## Getting Started
+> **Making Spec Quality Compound** — A self-improving QA system designed for Lovie's AI-first building workflow.
 
-First, run the development server:
+## 🎯 The Vision
+
+This demo presents **The Quality Loop**—the missing connector in Lovie's ecosystem that transforms a linear build pipeline into a self-improving cycle. Every spec contributes to organizational knowledge. Every run generates learnings that make the next spec better.
+
+## Quick Start
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Open http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## What Is This?
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The Quality Loop is a system that transforms Lovie's linear build pipeline into a self-improving cycle:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+Spec → Build → Review → Deploy → Quality Loop → (back to) Spec
+                                       ↓
+                         ┌─────────────────────────┐
+                         │  • Scorecard Engine     │
+                         │  • Pattern Harvester    │
+                         │  • Feedback Loop        │
+                         └─────────────────────────┘
+```
 
-## Learn More
+### The Problem It Solves
+- Learning stays in individual builders' heads
+- No way to reuse successful spec patterns
+- Culture constraint violations go undetected
+- Spec quality is subjective, not measurable
 
-To learn more about Next.js, take a look at the following resources:
+### The Solution
+- Every run generates a **Scorecard** with traceable rationale
+- High-scoring specs are harvested into **Gold Standards**
+- Systemic issues surface in **Organizational Insights**
+- Culture constraints become machine-checkable
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+quality-loop-2/
+├── app/
+│   ├── page.tsx                    # Landing page
+│   ├── system-flow/
+│   │   └── page.tsx                # Interactive system diagram
+│   └── demo/
+│       ├── page.tsx                # Demo hub dashboard
+│       ├── specs/
+│       │   ├── page.tsx            # Spec ledger
+│       │   └── [id]/page.tsx       # Spec detail
+│       ├── gold-standards/
+│       │   └── page.tsx            # Gold Standards library
+│       ├── insights/
+│       │   └── page.tsx            # Organizational insights
+│       └── culture-constraints/
+│           └── page.tsx            # Culture rules reference
+├── components/
+│   ├── ui/                         # Reusable UI components
+│   └── nav.tsx                     # Navigation
+├── data/                           # Mock data (JSON)
+│   ├── specs.json
+│   ├── gold-standards.json
+│   ├── culture-constraints.json
+│   └── insights.json
+└── lib/
+    └── utils.ts                    # Helper functions
+```
 
-## Deploy on Vercel
+## Pages Overview
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Page | Description |
+|------|-------------|
+| `/` | Landing page with value proposition |
+| `/system-flow` | Interactive diagram showing where Quality Loop fits |
+| `/demo` | Dashboard with key metrics |
+| `/demo/specs` | List of all specs with scores and filters |
+| `/demo/specs/[id]` | Deep dive into scorecard, runs, and deltas |
+| `/demo/gold-standards` | Reusable pattern library |
+| `/demo/insights` | Organizational patterns and trends |
+| `/demo/culture-constraints` | Culture rules the system checks against |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **Animations**: Framer Motion
+- **Data**: Static JSON (mock data)
+
+## Mock Data
+
+The demo includes 5 sample specs with varying quality scores:
+
+| Spec | Score | Status |
+|------|-------|--------|
+| User Onboarding Flow | 94 | Gold Standard |
+| Search Feature | 91 | Gold Standard |
+| Dashboard Analytics | 85 | Good |
+| Payment Integration | 78 | Needs Work |
+| Notification System | 62 | Needs Attention |
+
+## Lovie Culture Constraints
+
+The system checks specs against these principles from the Lovie Culture Manifesto:
+
+- **ASYNC_FIRST** - No required synchronous meetings
+- **SEARCH_FIRST** - Information findable via search
+- **MANAGER_OF_ONE** - Specs enable autonomy
+- **CENTRALIZED_KNOWLEDGE** - Single source of truth
+- **TRANSPARENT_WORKFLOWS** - Work visible to all
+
+## Deployment
+
+Deploy to Vercel with one click, or manually:
+
+```bash
+npm run build
+npm start
+```
+
+## License
+
+MIT
+
+---
+
+**Built by Ozan Özgöçer** — Designed with Lovie's vision in mind.

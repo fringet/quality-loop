@@ -1,0 +1,328 @@
+[
+  {
+    "id": "SPEC-2025-001",
+    "title": "User Onboarding Flow",
+    "domain": "Onboarding",
+    "author": "Builder A",
+    "createdAt": "2025-01-15",
+    "score": 94,
+    "status": "gold",
+    "failureTags": [],
+    "iterationCount": 1,
+    "specContent": "Create an async onboarding flow where users can complete profile setup at their own pace. The system saves progress automatically. Users receive an email summary after each session. No real-time validation required—all checks happen on submit.",
+    "scorecard": {
+      "executability": {
+        "score": 28,
+        "max": 30,
+        "rationale": "Clear intent with step-by-step UX flow. Explicit acceptance criteria for each onboarding stage. Minor gap: no explicit error states for invalid email format."
+      },
+      "constraintPrecision": {
+        "score": 23,
+        "max": 25,
+        "rationale": "Uses testable language ('saves automatically', 'on submit'). Defined defaults for optional fields. Small ambiguity in 'email summary' timing."
+      },
+      "reviewDiscipline": {
+        "score": 18,
+        "max": 20,
+        "rationale": "Includes guardrails for async behavior. Test scenarios cover happy path and session timeout. Missing: multi-device sync test case."
+      },
+      "cultureAlignment": {
+        "score": 15,
+        "max": 15,
+        "rationale": "Fully async design. No sync dependencies. Progress saved without real-time connection. Perfect alignment with Async-First principle."
+      },
+      "benchmarkAmbition": {
+        "score": 10,
+        "max": 10,
+        "rationale": "Exceeds competitor baseline. Email summaries and progress persistence are 100x better than typical 'complete in one session' flows."
+      }
+    },
+    "cultureViolations": [],
+    "specDeltas": [],
+    "runs": [
+      {
+        "id": "RUN-001",
+        "createdAt": "2025-01-15T10:30:00Z",
+        "status": "completed",
+        "iterationCount": 1,
+        "notes": "Clean first run. Agent understood intent immediately."
+      }
+    ],
+    "goldStandard": {
+      "extracted": true,
+      "patternId": "GS-001"
+    }
+  },
+  {
+    "id": "SPEC-2025-002",
+    "title": "Payment Integration",
+    "domain": "Payments",
+    "author": "Builder B",
+    "createdAt": "2025-01-18",
+    "score": 78,
+    "status": "needs-work",
+    "failureTags": ["MISSING_EDGE_CASES", "INTEGRATION_GAPS"],
+    "iterationCount": 3,
+    "specContent": "Add Stripe payment processing to checkout. Users should be able to pay with credit card. Show success or error message after payment.",
+    "scorecard": {
+      "executability": {
+        "score": 20,
+        "max": 30,
+        "rationale": "Basic intent is clear but lacks step-by-step flow. No mention of loading states, retry logic, or partial failures. 'Show success or error' is too vague."
+      },
+      "constraintPrecision": {
+        "score": 18,
+        "max": 25,
+        "rationale": "Missing defaults for timeout, currency, and region. 'Credit card' doesn't specify card types supported. No constraints on amount limits."
+      },
+      "reviewDiscipline": {
+        "score": 16,
+        "max": 20,
+        "rationale": "No test scenarios provided. No mention of how to verify in review. Missing guardrails for PCI compliance considerations."
+      },
+      "cultureAlignment": {
+        "score": 14,
+        "max": 15,
+        "rationale": "Mostly async-friendly. Minor concern: spec doesn't clarify if confirmation requires sync polling or webhook."
+      },
+      "benchmarkAmbition": {
+        "score": 10,
+        "max": 10,
+        "rationale": "Standard payment flow. Meets baseline but doesn't push for 100x experience."
+      }
+    },
+    "cultureViolations": [],
+    "specDeltas": [
+      {
+        "type": "add",
+        "location": "After 'credit card' mention",
+        "suggestion": "Specify supported card types: Visa, Mastercard, Amex. Define behavior for declined cards: show specific error message with retry option."
+      },
+      {
+        "type": "add",
+        "location": "New section",
+        "suggestion": "Add edge cases section: network timeout (retry after 3s, max 3 attempts), insufficient funds, expired card, 3D Secure flow."
+      },
+      {
+        "type": "add",
+        "location": "Acceptance criteria",
+        "suggestion": "Add: 'Payment webhook updates order status within 30 seconds. User sees confirmation without refreshing.'"
+      }
+    ],
+    "runs": [
+      {
+        "id": "RUN-002",
+        "createdAt": "2025-01-18T14:00:00Z",
+        "status": "completed",
+        "iterationCount": 3,
+        "notes": "First run had missing error handling. Two clarification rounds needed."
+      }
+    ],
+    "goldStandard": {
+      "extracted": false,
+      "reason": "Score below 90 threshold"
+    }
+  },
+  {
+    "id": "SPEC-2025-003",
+    "title": "Dashboard Analytics",
+    "domain": "Analytics",
+    "author": "Builder A",
+    "createdAt": "2025-01-20",
+    "score": 85,
+    "status": "good",
+    "failureTags": ["AMBIGUOUS_LANGUAGE"],
+    "iterationCount": 2,
+    "specContent": "Create a dashboard showing key metrics: total users, active sessions, and revenue. Data should update regularly. Include date range picker for filtering. Charts should be responsive.",
+    "scorecard": {
+      "executability": {
+        "score": 24,
+        "max": 30,
+        "rationale": "Good structure with clear metrics list. 'Update regularly' is ambiguous—could mean real-time, hourly, or daily. Date picker behavior not fully specified."
+      },
+      "constraintPrecision": {
+        "score": 20,
+        "max": 25,
+        "rationale": "'Responsive' lacks breakpoint definitions. No default date range specified. Missing: what happens when no data exists for selected range."
+      },
+      "reviewDiscipline": {
+        "score": 17,
+        "max": 20,
+        "rationale": "Implicit review via 'charts should be responsive' but no specific test scenarios. Missing: performance expectations for large datasets."
+      },
+      "cultureAlignment": {
+        "score": 14,
+        "max": 15,
+        "rationale": "Dashboard design is async-friendly. Data updates don't require user action. Minor: 'regularly' could imply polling which may have sync undertones."
+      },
+      "benchmarkAmbition": {
+        "score": 10,
+        "max": 10,
+        "rationale": "Standard dashboard with good basics. Date picker and responsiveness are table stakes but well-requested."
+      }
+    },
+    "cultureViolations": [],
+    "specDeltas": [
+      {
+        "type": "clarify",
+        "location": "'update regularly'",
+        "suggestion": "Replace with: 'Data refreshes every 5 minutes via background fetch. User can manually refresh. Last updated timestamp shown.'"
+      },
+      {
+        "type": "clarify",
+        "location": "'responsive'",
+        "suggestion": "Define breakpoints: Mobile (<640px) shows stacked cards. Tablet (640-1024px) shows 2-column grid. Desktop (>1024px) shows full dashboard."
+      }
+    ],
+    "runs": [
+      {
+        "id": "RUN-003",
+        "createdAt": "2025-01-20T09:00:00Z",
+        "status": "completed",
+        "iterationCount": 2,
+        "notes": "First run needed clarification on update frequency."
+      }
+    ],
+    "goldStandard": {
+      "extracted": false,
+      "reason": "Score below 90 threshold"
+    }
+  },
+  {
+    "id": "SPEC-2025-004",
+    "title": "Notification System",
+    "domain": "Notifications",
+    "author": "Builder C",
+    "createdAt": "2025-01-22",
+    "score": 62,
+    "status": "needs-attention",
+    "failureTags": ["SYNC_DEPENDENCY", "MISSING_ACCEPTANCE_CRITERIA", "SCOPE_CREEP"],
+    "iterationCount": 5,
+    "specContent": "Build a notification system. Users should get notified when things happen. Support push notifications, email, and in-app. Schedule a meeting with the team to discuss priority levels.",
+    "scorecard": {
+      "executability": {
+        "score": 14,
+        "max": 30,
+        "rationale": "Extremely vague: 'when things happen' provides no actionable trigger list. No user flow described. Scope is undefined—could take weeks or months."
+      },
+      "constraintPrecision": {
+        "score": 12,
+        "max": 25,
+        "rationale": "No constraints on notification frequency, quiet hours, or user preferences. 'Support push, email, in-app' doesn't define fallback order or delivery guarantees."
+      },
+      "reviewDiscipline": {
+        "score": 10,
+        "max": 20,
+        "rationale": "No acceptance criteria. No test scenarios. No guardrails. Impossible to verify completion."
+      },
+      "cultureAlignment": {
+        "score": 6,
+        "max": 15,
+        "rationale": "CRITICAL VIOLATION: 'Schedule a meeting' directly contradicts Async-First culture. This spec forces synchronous coordination."
+      },
+      "benchmarkAmbition": {
+        "score": 10,
+        "max": 10,
+        "rationale": "Multi-channel notifications are ambitious but spec is too vague to assess against benchmark."
+      }
+    },
+    "cultureViolations": [
+      {
+        "rule": "ASYNC_FIRST",
+        "severity": "high",
+        "quote": "Schedule a meeting with the team to discuss priority levels",
+        "suggestion": "Replace with: 'Document proposed priority levels in this spec. Request async feedback via comments. Finalize based on written input within 48 hours.'"
+      }
+    ],
+    "specDeltas": [
+      {
+        "type": "rewrite",
+        "location": "Entire 'when things happen' section",
+        "suggestion": "Create explicit trigger list: Order placed, Order shipped, Payment failed, New message received, Weekly digest. Each trigger maps to specific channels."
+      },
+      {
+        "type": "add",
+        "location": "New section: Acceptance Criteria",
+        "suggestion": "Add: 'User can toggle each notification type. Quiet hours (10pm-8am user local time) delay non-urgent notifications. Delivery confirmation logged for audit.'"
+      },
+      {
+        "type": "remove",
+        "location": "'Schedule a meeting'",
+        "suggestion": "Remove synchronous dependency. Document decisions in spec."
+      }
+    ],
+    "runs": [
+      {
+        "id": "RUN-004",
+        "createdAt": "2025-01-22T11:00:00Z",
+        "status": "completed",
+        "iterationCount": 5,
+        "notes": "Multiple clarification rounds. Agent struggled with undefined scope."
+      }
+    ],
+    "goldStandard": {
+      "extracted": false,
+      "reason": "Culture violation and low score"
+    }
+  },
+  {
+    "id": "SPEC-2025-005",
+    "title": "Search Feature",
+    "domain": "Search",
+    "author": "Builder B",
+    "createdAt": "2025-01-25",
+    "score": 91,
+    "status": "gold",
+    "failureTags": [],
+    "iterationCount": 1,
+    "specContent": "Implement full-text search across all content. Search results appear as user types (debounced 300ms). Results grouped by type: Documents, Users, Projects. Empty state shows recent searches. Max 20 results per type. Keyboard navigation supported (arrow keys + enter).",
+    "scorecard": {
+      "executability": {
+        "score": 27,
+        "max": 30,
+        "rationale": "Excellent specificity: debounce timing, grouping structure, result limits all defined. Keyboard nav requirement is clear. Minor gap: no loading state description."
+      },
+      "constraintPrecision": {
+        "score": 24,
+        "max": 25,
+        "rationale": "Precise constraints: 300ms debounce, 20 results max, specific keys for navigation. Empty state defined. Only gap: no mention of fuzzy matching tolerance."
+      },
+      "reviewDiscipline": {
+        "score": 17,
+        "max": 20,
+        "rationale": "Implicit test scenarios via keyboard nav requirement. Missing: explicit performance expectation (e.g., results in <200ms)."
+      },
+      "cultureAlignment": {
+        "score": 15,
+        "max": 15,
+        "rationale": "Perfect async design. Client-side debouncing. No sync dependencies. Embodies Search-First culture principle."
+      },
+      "benchmarkAmbition": {
+        "score": 8,
+        "max": 10,
+        "rationale": "Solid search implementation. Keyboard nav is great. Could push further with filters, saved searches, or AI-powered suggestions."
+      }
+    },
+    "cultureViolations": [],
+    "specDeltas": [
+      {
+        "type": "add",
+        "location": "Performance section",
+        "suggestion": "Add: 'Search results render within 200ms of debounce completion. Skeleton loading shown during fetch.'"
+      }
+    ],
+    "runs": [
+      {
+        "id": "RUN-005",
+        "createdAt": "2025-01-25T16:00:00Z",
+        "status": "completed",
+        "iterationCount": 1,
+        "notes": "Spec was clear enough for single-run completion."
+      }
+    ],
+    "goldStandard": {
+      "extracted": true,
+      "patternId": "GS-002"
+    }
+  }
+]

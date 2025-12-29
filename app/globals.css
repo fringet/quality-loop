@@ -1,26 +1,75 @@
 @import "tailwindcss";
 
+/* Lovie-inspired dark theme */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Base colors - Dark theme matching Lovie */
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  
+  /* Accent colors */
+  --accent-primary: #6366f1;      /* Indigo - primary actions */
+  --accent-secondary: #8b5cf6;    /* Purple - secondary accents */
+  --accent-success: #22c55e;      /* Green - success states */
+  --accent-warning: #f59e0b;      /* Amber - warnings */
+  --accent-danger: #ef4444;       /* Red - errors/failures */
+  --accent-gold: #fbbf24;         /* Gold - Gold Standards */
+  
+  /* Surface colors */
+  --surface-1: #111111;           /* Card backgrounds */
+  --surface-2: #1a1a1a;           /* Elevated surfaces */
+  --surface-3: #262626;           /* Borders, dividers */
+  
+  /* Text colors */
+  --text-primary: #ededed;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-accent-primary: var(--accent-primary);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-accent-success: var(--accent-success);
+  --color-accent-warning: var(--accent-warning);
+  --color-accent-danger: var(--accent-danger);
+  --color-accent-gold: var(--accent-gold);
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--surface-3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
 }

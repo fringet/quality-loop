@@ -1,0 +1,71 @@
+{
+  "summary": {
+    "totalSpecs": 5,
+    "averageScore": 82,
+    "goldStandardsCount": 2,
+    "specsNeedingAttention": 1,
+    "totalRuns": 5,
+    "averageIterations": 2.4
+  },
+  "failureTagDistribution": [
+    { "tag": "MISSING_EDGE_CASES", "count": 1, "percentage": 20 },
+    { "tag": "AMBIGUOUS_LANGUAGE", "count": 1, "percentage": 20 },
+    { "tag": "SYNC_DEPENDENCY", "count": 1, "percentage": 20 },
+    { "tag": "MISSING_ACCEPTANCE_CRITERIA", "count": 1, "percentage": 20 },
+    { "tag": "INTEGRATION_GAPS", "count": 1, "percentage": 20 },
+    { "tag": "SCOPE_CREEP", "count": 1, "percentage": 20 }
+  ],
+  "cultureViolationTrend": [
+    { "week": "Jan 13-19", "violations": 0 },
+    { "week": "Jan 20-26", "violations": 1 }
+  ],
+  "scoreDistribution": [
+    { "range": "90-100", "count": 2, "label": "Gold Standard" },
+    { "range": "80-89", "count": 1, "label": "Good" },
+    { "range": "70-79", "count": 1, "label": "Needs Work" },
+    { "range": "0-69", "count": 1, "label": "Needs Attention" }
+  ],
+  "iterationTrend": [
+    { "specId": "SPEC-2025-001", "iterations": 1 },
+    { "specId": "SPEC-2025-002", "iterations": 3 },
+    { "specId": "SPEC-2025-003", "iterations": 2 },
+    { "specId": "SPEC-2025-004", "iterations": 5 },
+    { "specId": "SPEC-2025-005", "iterations": 1 }
+  ],
+  "topInsights": [
+    {
+      "id": "insight-1",
+      "type": "pattern",
+      "severity": "high",
+      "title": "Sync Dependencies Still Appearing",
+      "description": "1 spec this week included 'schedule a meeting' language. This violates Async-First culture and causes delays.",
+      "recommendation": "Add async communication patterns to spec templates. Flag 'meeting', 'call', 'sync' keywords in spec review.",
+      "affectedSpecs": ["SPEC-2025-004"]
+    },
+    {
+      "id": "insight-2",
+      "type": "opportunity",
+      "severity": "medium",
+      "title": "Edge Cases Consistently Missing",
+      "description": "2 out of 5 specs lacked explicit edge case handling. This leads to extra iteration cycles.",
+      "recommendation": "Add 'Edge Cases' as a required section in spec template. Prompt builders to consider: timeouts, empty states, error recovery.",
+      "affectedSpecs": ["SPEC-2025-002", "SPEC-2025-003"]
+    },
+    {
+      "id": "insight-3",
+      "type": "success",
+      "severity": "low",
+      "title": "Clear Specs Ship Faster",
+      "description": "Specs scoring 90+ averaged 1 iteration. Specs below 80 averaged 4 iterations. Clarity directly impacts velocity.",
+      "recommendation": "Share Gold Standard patterns with all builders. Consider mandatory pattern checklist before spec submission.",
+      "affectedSpecs": ["SPEC-2025-001", "SPEC-2025-005"]
+    }
+  ],
+  "domainBreakdown": [
+    { "domain": "Onboarding", "count": 1, "avgScore": 94 },
+    { "domain": "Payments", "count": 1, "avgScore": 78 },
+    { "domain": "Analytics", "count": 1, "avgScore": 85 },
+    { "domain": "Notifications", "count": 1, "avgScore": 62 },
+    { "domain": "Search", "count": 1, "avgScore": 91 }
+  ]
+}

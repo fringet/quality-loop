@@ -1,0 +1,48 @@
+[
+  {
+    "id": "GS-001",
+    "patternName": "Async Flow Definition",
+    "whenToUse": "When specifying user journeys that span multiple sessions or don't require real-time completion",
+    "description": "A pattern for defining user flows that respect async-first principles. Ensures users can complete tasks at their own pace without losing progress.",
+    "snippets": [
+      "The system saves progress automatically after each step",
+      "User receives email notification within 5 minutes of action completion",
+      "No real-time validation required—all checks happen on submit",
+      "User can resume from any device using the same account"
+    ],
+    "antiPatterns": [
+      "User must wait on screen for confirmation",
+      "Requires real-time connection to proceed",
+      "Session expires if user is inactive for 5 minutes",
+      "Changes are lost if browser is closed"
+    ],
+    "sourceSpecId": "SPEC-2025-001",
+    "sourceSpecTitle": "User Onboarding Flow",
+    "tags": ["async", "user-flow", "progress-saving", "notifications"],
+    "extractedAt": "2025-01-15T12:00:00Z",
+    "usageCount": 3
+  },
+  {
+    "id": "GS-002",
+    "patternName": "Precise Interaction Specification",
+    "whenToUse": "When defining interactive UI components that need specific timing, constraints, and keyboard support",
+    "description": "A pattern for specifying interactive elements with precise timing, numerical constraints, and accessibility considerations baked in.",
+    "snippets": [
+      "Results appear as user types (debounced 300ms)",
+      "Max 20 results per category",
+      "Keyboard navigation supported (arrow keys + enter)",
+      "Empty state shows [fallback content]"
+    ],
+    "antiPatterns": [
+      "Results update in real-time (too vague on timing)",
+      "Show all results (unbounded)",
+      "Click to select (ignores keyboard users)",
+      "No results found (unhelpful empty state)"
+    ],
+    "sourceSpecId": "SPEC-2025-005",
+    "sourceSpecTitle": "Search Feature",
+    "tags": ["interaction", "timing", "accessibility", "constraints"],
+    "extractedAt": "2025-01-25T18:00:00Z",
+    "usageCount": 1
+  }
+]

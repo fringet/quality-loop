@@ -1,0 +1,103 @@
+[
+  {
+    "id": "ASYNC_FIRST",
+    "name": "Async-First Communication",
+    "description": "No required synchronous meetings or real-time dependencies. Work should be completable without waiting for others to be online.",
+    "principle": "We prefer to communicate in public channels over private ones. Transparent communication leads to increased learning and belonging.",
+    "violationExamples": [
+      "Schedule a call to discuss requirements",
+      "Wait for team standup to get approval",
+      "Ping me when you're ready to sync",
+      "Let's hop on a quick call",
+      "Block time on my calendar to review"
+    ],
+    "compliantExamples": [
+      "Document decision in this spec and notify via async channel",
+      "Record a Loom walkthrough for complex explanations",
+      "Leave comments with questions—I'll respond within 24 hours",
+      "Review the PR asynchronously and approve when ready"
+    ],
+    "severity": "high",
+    "source": "Lovie Culture Manifesto"
+  },
+  {
+    "id": "SEARCH_FIRST",
+    "name": "Search-First Culture",
+    "description": "Information should be findable via search, not asked for. Build systems that make knowledge accessible to all.",
+    "principle": "We search before we ask. We build systems that make information accessible.",
+    "violationExamples": [
+      "DM the team lead for the API docs",
+      "Ask John—he knows how this works",
+      "Check with the person who built it",
+      "I'll explain it to you in person"
+    ],
+    "compliantExamples": [
+      "Documentation is in /docs/api-reference",
+      "Search 'authentication flow' in Notion",
+      "The README covers this in the Setup section",
+      "Added inline comments explaining the logic"
+    ],
+    "severity": "medium",
+    "source": "Lovie Culture Manifesto"
+  },
+  {
+    "id": "MANAGER_OF_ONE",
+    "name": "Manager of One",
+    "description": "Specs should enable autonomy, not require hand-holding. Each person sets their own schedule and accountability.",
+    "principle": "We value agency and autonomy. You set your own schedule, create your own accountability systems, and embrace a growth mindset.",
+    "violationExamples": [
+      "Check with manager before each step",
+      "Get approval before proceeding",
+      "Wait for sign-off at each milestone",
+      "Report daily progress updates"
+    ],
+    "compliantExamples": [
+      "Make the call based on the documented criteria",
+      "Use your judgment for edge cases not covered here",
+      "Escalate only if blocked for >24 hours",
+      "Share outcome when complete"
+    ],
+    "severity": "medium",
+    "source": "Lovie Culture Manifesto"
+  },
+  {
+    "id": "CENTRALIZED_KNOWLEDGE",
+    "name": "Centralized Knowledge",
+    "description": "Single source of truth. If it's not documented, it doesn't exist. All decisions and context should live in one findable place.",
+    "principle": "A single source of truth. If it's not documented, it doesn't exist.",
+    "violationExamples": [
+      "Refer to the Slack thread from last week",
+      "It's in my local notes somewhere",
+      "We discussed this in the meeting",
+      "Check the email chain"
+    ],
+    "compliantExamples": [
+      "Decision documented in the project spec",
+      "Context added to the ticket description",
+      "Runbook updated with new steps",
+      "Added to the central knowledge base"
+    ],
+    "severity": "medium",
+    "source": "Lovie Culture Manifesto"
+  },
+  {
+    "id": "TRANSPARENT_WORKFLOWS",
+    "name": "Transparent Workflows",
+    "description": "Work is visible to all, no silos. Project management is transparent. Anyone can see progress and context.",
+    "principle": "Project management is visible to all. No work happens in silos.",
+    "violationExamples": [
+      "This is just between us",
+      "Keep this in private channel",
+      "Don't share this with the team yet",
+      "I'll handle it offline"
+    ],
+    "compliantExamples": [
+      "Moved discussion to public channel",
+      "Updated the project board with status",
+      "All context is in the ticket",
+      "Anyone can view the progress here"
+    ],
+    "severity": "medium",
+    "source": "Lovie Culture Manifesto"
+  }
+]
